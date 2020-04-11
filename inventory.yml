@@ -1,0 +1,15 @@
+---
+all:
+  children:
+    core:
+      hosts:
+        manjaro_laptop:
+          ansible_connection: local
+    docker:
+      hosts:
+        manjaro_laptop:
+          ansible_connection: local
+    graphical:
+      hosts:
+        manjaro_laptop:
+          ansible_connection: local

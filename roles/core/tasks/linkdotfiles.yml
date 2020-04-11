@@ -1,0 +1,37 @@
+---
+- name: download dotfiles git repo
+  git:
+    repo: https://github.com/patwoodburn/dotfiles.git
+    dest: "/home/{{ username }}/dotfiles"
+
+- name: link gitconfig
+  file:
+    src: /home/{{ username }}/dotfiles/gitconfig
+    dest: /home/{{ username }}/.gitconfig
+    state: link
+
+- name: link zshrc
+  file:
+    src: /home/{{ username }}/dotfiles/zshrc
+    dest: /home/{{ username }}/.zshrc
+    state: link
+
+- name: link vimrc
+  file:
+    src: /home/{{ username }}/dotfiles/vimrc
+    dest: /home/{{ username }}/.vimrc
+    state: link
+
+- name: download vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: /home/{{ username }}/.vim/bundle/Vundle.vim
+
+- name: run vundle install
+  command: "vim +PluginInstall +qall"
+
+- name: change shell
+  become: yes
+  user:
+    name: "{{ username }}"
+    shell: /bin/zsh

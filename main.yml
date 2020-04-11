@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+
+- hosts: core
+  roles:
+    - {role: core}
+
+
+- hosts: docker
+  roles:
+    - {role: docker}
+
+
+- hosts: graphical
+  roles:
+    - {role: graphical}

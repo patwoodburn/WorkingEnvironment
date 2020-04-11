@@ -1,0 +1,8 @@
+---
+- name: install software
+  include_tasks:
+    file: installCoreSoftware.yml
+
+- name: Link dotfiles
+  include_tasks:
+    file: linkdotfiles.yml
