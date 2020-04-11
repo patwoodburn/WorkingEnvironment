@@ -1,0 +1,13 @@
+---
+- name: install software
+  become: yes
+  package:
+    name:
+      - docker
+    state: present
+
+- name: add user to docker
+  become: yes
+  user:
+    name: "{{ username }}"
+    group: docker
