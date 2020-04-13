@@ -10,7 +10,7 @@
     state: present
 
 - name: get zsh
-  command: 'git clone-c core.autocrlf=input --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh'
+  command: 'git clone -c core.autocrlf=input --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh'
   args:
     chdir: "/home/{{ username }}/"
     creates: "/home/{{ username }}/.oh-my-zsh"

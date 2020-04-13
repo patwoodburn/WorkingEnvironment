@@ -11,3 +11,11 @@
   user:
     name: "{{ username }}"
     group: docker
+
+- name: start docker
+  become: yes
+  command: "systemctl start docker"
+
+- name: enable docker
+  become: yes
+  command: "systemctl enable docker"
