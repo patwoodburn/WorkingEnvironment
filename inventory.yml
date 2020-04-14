@@ -5,11 +5,11 @@ all:
       hosts:
         manjaro_laptop:
           ansible_connection: local
-    docker:
+    graphical:
       hosts:
         manjaro_laptop:
           ansible_connection: local
-    graphical:
+    docker:
       hosts:
         manjaro_laptop:
           ansible_connection: local

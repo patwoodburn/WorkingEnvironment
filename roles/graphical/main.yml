@@ -1,0 +1,34 @@
+---
+- name: install software
+  become: yes
+  package:
+    name:
+      - alacritty
+      - dmenue
+      - sxkdb
+      - bspwm
+      - polybar
+    state: present
+
+- name: grab dotfiles
+  git:
+    repo: https://github.com/patwoodburn/dotfiles.git
+    dest: "/home/{{ username }}/dotfiles"
+
+- name: config alacritty
+  file:
+    src: "/home/{{ username }}/dotfiles/alacritty.yml"
+    dest: "/home/{{ username }}/.config/asacritty/alacritty.yml"
+    state: link
+
+- name: config sxkbd
+  file:
+    src: "/home/{{ username }}/dotfiles/sxkbdrc"
+    dest: "/home/{{ username }}/.config/sxkbd/sxkbdrc"
+    state: link
+
+- name: config bspwm
+  file:
+    src: "/home{{ username }}/dotfiles/bspwmrc"
+    dest: "/home/{{ username }}/.config/bspwm/bspwmrc"
+    state: link

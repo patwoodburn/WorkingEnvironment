@@ -6,14 +6,25 @@
 
 - name: link gitconfig
   file:
-    src: /home/{{ username }}/dotfiles/gitconfig
-    dest: /home/{{ username }}/.gitconfig
+    src: "/home/{{ username }}/dotfiles/gitconfig"
+    dest: "/home/{{ username }}/.gitconfig"
     state: link
+
+- name: download zsh theme
+  git:
+    repo: http://github.com/dracula/zsh.git
+    dest: "/home/{{ username }}/.themes/zsh"
 
 - name: link zshrc
   file:
     src: /home/{{ username }}/dotfiles/zshrc
     dest: /home/{{ username }}/.zshrc
+    state: link
+
+- name: link zsh theme
+  file:
+    src: "/home/{{ username }}/.themes/zsh/dracula.zsh-theme"
+    dest: "/home/{{ username }}/.oh-my-zsh/themes/dracula.zsh-theme"
     state: link
 
 - name: link vimrc
