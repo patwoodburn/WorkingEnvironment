@@ -4,10 +4,11 @@
   package:
     name:
       - alacritty
-      - dmenue
-      - sxkdb
-      - bspwm
+      - sxhkd
       - polybar
+        # - TODO move away from manjaro
+        # - dmenu
+        # - bspwm
     state: present
 
 - name: grab dotfiles
@@ -18,17 +19,17 @@
 - name: config alacritty
   file:
     src: "/home/{{ username }}/dotfiles/alacritty.yml"
-    dest: "/home/{{ username }}/.config/asacritty/alacritty.yml"
+    dest: "/home/{{ username }}/.config/alacritty/alacritty.yml"
     state: link
 
 - name: config sxkbd
   file:
-    src: "/home/{{ username }}/dotfiles/sxkbdrc"
-    dest: "/home/{{ username }}/.config/sxkbd/sxkbdrc"
+    src: "/home/{{ username }}/dotfiles/sxhkdrc"
+    dest: "/home/{{ username }}/.config/sxhkd/sxkbdrc"
     state: link
 
 - name: config bspwm
   file:
-    src: "/home{{ username }}/dotfiles/bspwmrc"
+    src: "/home/{{ username }}/dotfiles/bspwmrc"
     dest: "/home/{{ username }}/.config/bspwm/bspwmrc"
     state: link
