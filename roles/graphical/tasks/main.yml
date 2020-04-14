@@ -25,7 +25,7 @@
 - name: config sxkbd
   file:
     src: "/home/{{ username }}/dotfiles/sxhkdrc"
-    dest: "/home/{{ username }}/.config/sxhkd/sxkbdrc"
+    dest: "/home/{{ username }}/.config/sxhkd/sxhkdrc"
     state: link
 
 - name: config bspwm
