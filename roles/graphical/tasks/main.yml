@@ -6,6 +6,7 @@
       - alacritty
       - sxhkd
       - polybar
+      - acpi
         # - TODO move away from manjaro
         # - dmenu
         # - bspwm
@@ -33,3 +34,8 @@
     src: "/home/{{ username }}/dotfiles/bspwmrc"
     dest: "/home/{{ username }}/.config/bspwm/bspwmrc"
     state: link
+
+- name: config lemonbar
+  file:
+    src: "/home/{{ username}}/dotfiles/lemonbarrc"
+    dest: "/home/{{ username }}/.config/lemonbar/lemonbarrc"
